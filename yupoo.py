@@ -55,7 +55,7 @@ def get_photo_url(pid):
 
     if data['stat'] == 'ok':
         photo = data['photo']
-        url = 'http://pic.yupoo.com/' + \
+        url = 'http://photo.yupoo.com/' + \
               photo['bucket'] + '/' + photo['key'] + '/' + photo['secret'] + '.' + photo['originalformat']
         title = photo['title'] + '.' + photo['originalformat']
     else:
