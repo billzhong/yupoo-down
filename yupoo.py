@@ -20,26 +20,6 @@ if api_regex is None:
 UID = api_regex.group(1)
 
 
-def get_album_photos(aid):
-    r = requests.get('http://www.yupoo.com/api/rest/', params={
-        'format': 'json',
-        'api_key': '5beaf2f754c86',
-        'ypp': 1,
-        'method': 'yupoo.albums.getPhotos',
-        'album_id': aid,
-    }, cookies={
-        'sid': SID,
-    })
-
-    data = r.json()
-
-    if data['stat'] == 'ok':
-        for photo in data['album']['photos']:
-            url, fn = get_photo_url(photo['id'])
-            print(url)
-            print('  out=' + aid + '/' + fn)
-
-
 def get_photo_url(pid):
     r = requests.get('http://www.yupoo.com/api/rest/', params={
         'format': 'json',
@@ -79,4 +59,21 @@ data = r.json()
 if data['stat'] == 'ok':
     for album in data['albums']:
         print('#', album['title'], album['photos'])
-        get_album_photos(album['id'])
+
+        r = requests.get('http://www.yupoo.com/api/rest/', params={
+            'format': 'json',
+            'api_key': '5beaf2f754c86',
+            'ypp': 1,
+            'method': 'yupoo.albums.getPhotos',
+            'album_id': album['id'],
+        }, cookies={
+            'sid': SID,
+        })
+
+        data = r.json()
+
+        if data['stat'] == 'ok':
+            for photo in data['album']['photos']:
+                url, fn = get_photo_url(photo['id'])
+                print(url)
+                print('  out=' + album['title'] + '/' + fn)
