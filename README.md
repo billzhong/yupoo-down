@@ -1,13 +1,13 @@
-# Yupoo Downloader 又拍下载器
+# Yupoo Downloader 又拍网相册下载器
 
-## Requirement
+## Requirements
 - Python 3
 - Requests
   - ```pip install -r requirements.txt```
 
 ## Usage 用法
 - 找到 sid
-  - 正常登录 [又拍](http://www.yupoo.com/account/login/) 回到主页
+  - 正常登录 [又拍网](http://www.yupoo.com/account/login/) 回到主页
   - 打开 `开发者工具` 或 `网页检查器` ，在 `Application` 或 `储存空间` 里找到 `Cookie` 里面的 `sid` 值并记下来。
     - 或者，右键 `显示网页源代码` ，搜索 `sid:` 记下后面引号内的值。
 - 填入 sid
@@ -23,6 +23,6 @@
 ### TODO
 - 在 Windows 下测试
 - 完善文档
-- 可选相册下载
+- 相册选择性下载
 - 内置输出而不是使用输出重定向
 - 支持生成非 `aria2` 格式的列表
