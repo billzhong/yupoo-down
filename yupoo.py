@@ -14,7 +14,7 @@ if r.status_code != 200:
 
 api_regex = re.search(r',apiKey: \'(.+)\',apiSecret:.+,user: {id: (\d+),username:', r.text)
 if api_regex is None:
-    print('no API and UID')
+    print('no KEY and UID')
     exit()
 
 API = api_regex.group(1)
@@ -40,7 +40,7 @@ def get_photo_url(pid):
               photo['bucket'] + '/' + photo['key'] + '/' + photo['secret'] + '.' + photo['originalformat']
         title = photo['title'] + '.' + photo['originalformat']
     else:
-        print('# API stat: ' + data['stat'])
+        print('# API stat:', data['stat'])
         url = title = ''
 
     return url, title
@@ -80,8 +80,8 @@ if data['stat'] == 'ok':
                 print(url)
                 print('  out=' + album['title'] + '/' + fn)
         else:
-            print('# API stat: ' + data['stat'])
+            print('# API stat:', + data['stat'])
 
 else:
-    print('# API stat: ' + data['stat'])
+    print('# API stat:', data['stat'])
 
