@@ -12,18 +12,19 @@ if r.status_code != 200:
     print('wrong SID')
     exit()
 
-api_regex = re.search(r',user: {id: (\d+),username:', r.text)
+api_regex = re.search(r',apiKey: \'(.+)\',apiSecret:.+,user: {id: (\d+),username:', r.text)
 if api_regex is None:
-    print('no UID')
+    print('no API and UID')
     exit()
 
-UID = api_regex.group(1)
+API = api_regex.group(1)
+UID = api_regex.group(2)
 
 
 def get_photo_url(pid):
     r = requests.get('http://www.yupoo.com/api/rest/', params={
         'format': 'json',
-        'api_key': '5beaf2f754c86',
+        'api_key': API,
         'ypp': 1,
         'method': 'yupoo.photos.getInfo',
         'photo_id': pid,
@@ -39,6 +40,7 @@ def get_photo_url(pid):
               photo['bucket'] + '/' + photo['key'] + '/' + photo['secret'] + '.' + photo['originalformat']
         title = photo['title'] + '.' + photo['originalformat']
     else:
+        print('# API stat: ' + data['stat'])
         url = title = ''
 
     return url, title
@@ -46,7 +48,7 @@ def get_photo_url(pid):
 
 r = requests.get('http://www.yupoo.com/api/rest/', params={
     'format': 'json',
-    'api_key': '5beaf2f754c86',
+    'api_key': API,
     'ypp': 1,
     'method': 'yupoo.albums.getList',
     'user_id': UID,
@@ -62,7 +64,7 @@ if data['stat'] == 'ok':
 
         r = requests.get('http://www.yupoo.com/api/rest/', params={
             'format': 'json',
-            'api_key': '5beaf2f754c86',
+            'api_key': API,
             'ypp': 1,
             'method': 'yupoo.albums.getPhotos',
             'album_id': album['id'],
@@ -77,3 +79,9 @@ if data['stat'] == 'ok':
                 url, fn = get_photo_url(photo['id'])
                 print(url)
                 print('  out=' + album['title'] + '/' + fn)
+        else:
+            print('# API stat: ' + data['stat'])
+
+else:
+    print('# API stat: ' + data['stat'])
+
