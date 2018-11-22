@@ -24,22 +24,27 @@ def sid_test(SID=None):
     r = requests.get('http://www.yupoo.com/account/', allow_redirects=False, cookies={
         'sid': SID,
     })
-    globals API, UID
+    global API, UID
     
     if r.status_code != 200:
         print('wrong SID')
-        return status1 = "wrong_sid", API = 0, UID = 0
+        status1 = "wrong_sid"
+        API = 0 
+        UID = 0
         #exit()
     else:
         api_regex = re.search(r',apiKey: \'(.+)\',apiSecret:.+,user: {id: (\d+),username:', r.text)
         if api_regex is None:
             print('no KEY and UID')
-            return status1 = "nokeyanduid", API = 0, UID = 0
+            status1 = "nokeyanduid"
+            API = 0 
+            UID = 0
             #exit()
         else:
             API = api_regex.group(1)
             UID = api_regex.group(2)
-            return status1 = "ok", API, UID
+            status1 = "ok"
+    return status1, API, UID
 
 
 def requestsget(method1=None, kind1=None, id1=None):
@@ -51,7 +56,7 @@ def requestsget(method1=None, kind1=None, id1=None):
     para['method'] = method1
     para[kind1] = id1
     r = requests.get('http://www.yupoo.com/api/rest/', params=para
-    }, cookies={
+    , cookies={
         'sid': SID,
     })
     return r.json()
