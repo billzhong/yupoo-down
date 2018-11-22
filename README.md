@@ -1,8 +1,10 @@
 # Yupoo Downloader 又拍网相册下载器
 
+##无账号，未测试代码
 ## Requirements
 - Python 3
 - Requests
+- pyqt5
   - ```pip install -r requirements.txt```
 
 ## Usage 用法
