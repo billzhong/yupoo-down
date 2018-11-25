@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "如何获取SID"))
         self.pushButton_2.setText(_translate("MainWindow", "生成aria2下载列表"))
         self.label_2.setText(_translate("MainWindow", "配置aria2 RPC 路径："))
-        self.lineEdit_2.setText(_translate("MainWindow", "http(s)://192.168.1.99:6800/jsonrpc"))
+        self.lineEdit_2.setText(_translate("MainWindow", "http://192.168.1.99:6800/jsonrpc"))
         self.pushButton_3.setText(_translate("MainWindow", "启动aria2下载"))
         self.label.setText(_translate("MainWindow", "SID："))
         self.lineEdit.setText(_translate("MainWindow", "请填入获取到的SID"))
