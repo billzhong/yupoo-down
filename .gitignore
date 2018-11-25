@@ -1,7 +1,2 @@
-.DS_Store
-Thumbs.db
 
-.idea
-
-*.pyc
-urls.txt
+*.spec
