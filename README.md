@@ -16,16 +16,20 @@
   - 把上一步获取的 `sid` 值填入代码内 `SID =` 引号里面。
     - 类似 `SID = '123defghijklmnopqrstuvw456'` 这样。
   
--点击软件页面的输入SID，
--点击生成aria2文件
--配置aria2的文件
--点击使用aria2下载
+- 点击软件页面的输入SID，
+- 点击生成aria2文件
+- 配置aria2的文件
+- 点击使用aria2下载
 
 ## Bugs
--容易卡死，特别是第一次登陆的时候，多试几次就可以了
--其他未知bugs
+- 容易卡死，特别是第一次登陆的时候，多试几次就可以了
+- 其他未知bugs
 
-##下载
--页面右边偏上的地方有个 “Clone or download”按钮，适合动手能力比较强的同学
--[版本发布](https://github.com/xinyu3ru/yupoo-down/releases)，在这个页面下载打包的exe文件（64位系统测试，32位系统未测试）
--Linux的同学自己折腾吧
+## 下载
+- 页面右边偏上的地方有个 “Clone or download”按钮，适合动手能力比较强的同学
+
+
+- [版本发布](https://github.com/xinyu3ru/yupoo-down/releases)，在这个页面下载打包的exe文件（64位系统测试，32位系统未测试）
+
+
+- Linux的同学自己折腾吧
