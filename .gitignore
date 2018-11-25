@@ -4,3 +4,4 @@ Thumbs.db
 .idea
 
 /venv
+*.pyc
