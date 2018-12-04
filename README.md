@@ -1,9 +1,16 @@
 # Yupoo Downloader 又拍网相册下载器
 
+
 ## Requirements
 - Python 3
 - Requests
+- pyqt5
   - ```pip install -r requirements.txt```
+
+## Yupoo提供了官方的备份工具
+- 可以登录网站直接打包下载[Yupoo备份](http://period.yupoo.com)
+- 应该不需要维护和更新了
+
 
 ## Usage 用法
 - 找到 sid
@@ -13,17 +20,21 @@
 - 填入 sid
   - 把上一步获取的 `sid` 值填入代码内 `SID =` 引号里面。
     - 类似 `SID = '123defghijklmnopqrstuvw456'` 这样。
-- 生成下载列表
-  - 运行 ```python yupoo.py > urls.txt```
-    - 根据照片的数量，可能需要等一会儿。
-- 使用 `aria2` 下载
-  - 运行 ```aria2c -iurls.txt```
-  - 其他可选参数 `--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.1 Safari/605.1.15" --header "Referer: http://www.yupoo.com/"`
   
-### TODO
-- 在 Windows 下测试
-- 完善文档
-- 相册选择性下载
-- 支持超过 500 张照片的相册
-- 内置输出而不是使用输出重定向
-- 支持生成非 `aria2` 格式的列表
+- 点击软件页面的输入SID，
+- 点击生成aria2文件
+- 配置aria2的文件
+- 点击使用aria2下载
+
+## Bugs
+- 容易卡死，特别是第一次登陆的时候，多试几次就可以了
+- 其他未知bugs
+
+## 下载
+- 页面右边偏上的地方有个 “Clone or download”按钮，适合动手能力比较强的同学
+
+
+- [版本发布](https://github.com/xinyu3ru/yupoo-down/releases)，在这个页面下载打包的exe文件（64位系统测试，32位系统未测试）
+
+
+- Linux的同学自己折腾吧
