@@ -7,6 +7,11 @@
 - pyqt5
   - ```pip install -r requirements.txt```
 
+## Yupoo提供了官方的备份工具
+- 可以登录网站直接打包下载[Yupoo备份](http://period.yupoo.com)
+- 应该不需要维护和更新了
+
+
 ## Usage 用法
 - 找到 sid
   - 正常登录 [又拍网](http://www.yupoo.com/account/login/) 回到主页
